@@ -75,7 +75,7 @@
                 "sha256:f271f90005064c49b47a93f456dc6cf0a21d21ef835bd33ac1e0db10ad51f84f",
                 "sha256:f67b7306fd00d55f271009335cecadc506d144205c7891070aad889928d85750"
             ],
-            "markers": "python_version >= '2.6' and python_version not in '3.0, 3.1, 3.2'",
+            "markers": "python_version >= '2.6' and python_version not in '3.0, 3.1, 3.2, 3.3'",
             "version": "==0.29.33"
         },
         "h11": {
