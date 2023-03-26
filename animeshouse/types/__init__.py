@@ -11,6 +11,13 @@ class Meta:
 
 
 @dataclass
+class Link(Meta):
+    season:str="s1"
+    episode:str=None
+    _type:str="legendado-hd"
+
+
+@dataclass
 class Card(Meta):
     _id:str=None
     title:str=None

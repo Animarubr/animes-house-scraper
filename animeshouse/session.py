@@ -16,14 +16,13 @@ class Session:
         params: Dict=dict(),
         data=None
     ) -> Request:
-        try:
-            
-            with self.http as http:
-                r = http.request(method, url, headers=headers,
-                params=params, data=data)
-            
-            return r
-            
-        except Exception as e:
-            self.http.close()
-            raise e
+        request = self.http.build_request(method, url, headers=headers, params=params, data=data)
+        
+        while request is not None:
+            res = self.http.send(request)
+            return res
+        
+        # with self.http as http:
+        #     r = http.request(method, url, headers=headers,params=params, data=data)                
+        # return r
+        

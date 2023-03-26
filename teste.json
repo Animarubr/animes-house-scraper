@@ -1,240 +1,306 @@
 [
     {
-        "_id": "f9caa3570e02051b767acbd1736953935f0ccd1e46ea64799a969f4cd7372549",
-        "title": "Tondemo Skill de Isekai Hourou Meshi",
-        "image": "https://animeshouse.net/wp-content/uploads/2023/02/Pic998-426x240.jpg",
-        "link": "https://animeshouse.net/episodio/tondemo-skill-de-isekai-hourou-meshi-s1-episodio-8-legendado-hd/",
-        "episode": [
-            8.0
-        ],
-        "episode_slang": "episódio-8",
-        "is_censored": true
-    },
-    {
-        "_id": "eaf3a780ccd60a77404c12fc046ff420bbb25efa2a168a8ace4c75b6f4620321",
-        "title": "Ningen Fushin no Boukensha-tachi ga Sekai wo Sukuu you desu",
-        "image": "https://animeshouse.net/wp-content/uploads/2023/02/Pic614-426x240.jpg",
-        "link": "https://animeshouse.net/episodio/ningen-fushin-no-boukensha-tachi-ga-sekai-wo-sukuu-you-desu-s1-episodio-9-legendado-hd/",
-        "episode": [
-            9.0
-        ],
-        "episode_slang": "episódio-9",
-        "is_censored": true
-    },
-    {
-        "_id": "f9f9020d888316833ec698cf53c97609a6575a9d7813747e2a94eca7f622a317",
-        "title": "Koori Zokusei Danshi to Cool na Douryou Joshi",
-        "image": "https://animeshouse.net/wp-content/uploads/2023/02/Pic895-426x240.jpg",
-        "link": "https://animeshouse.net/episodio/koori-zokusei-danshi-to-cool-na-douryou-joshi-s1-episodio-9-legendado-hd/",
-        "episode": [
-            9.0
-        ],
-        "episode_slang": "episódio-9",
-        "is_censored": true
-    },
-    {
-        "_id": "5949606f85420603fe4b46fc8dad2ee9dbe564a69f60a4653b63526b259bd223",
-        "title": "Ars no Kyojuu",
-        "image": "https://animeshouse.net/wp-content/uploads/2023/02/Pic753-426x240.jpg",
-        "link": "https://animeshouse.net/episodio/ars-no-kyojuu-s1-episodio-8-legendado-hd/",
-        "episode": [
-            8.0
-        ],
-        "episode_slang": "episódio-8",
-        "is_censored": true
-    },
-    {
-        "_id": "e24075637a68f89064e65b00c881f0634b287b557b280e3d86d68f948dee2bae",
-        "title": "Eiyuuou, Bu wo Kiwameru Tame Tenseisu: Soshite, Sekai Saikyou no Minarai Kishi♀",
-        "image": "https://animeshouse.net/wp-content/uploads/2023/02/Pic1062-426x240.jpg",
-        "link": "https://animeshouse.net/episodio/eiyuuou-bu-wo-kiwameru-tame-tenseisu-soshite-sekai-saikyou-no-minarai-kishi%e2%99%80-s1-episodio-8-legendado-hd/",
-        "episode": [
-            8.0
-        ],
-        "episode_slang": "episódio-8",
-        "is_censored": true
-    },
-    {
-        "_id": "77ae64906474b10a9c15e514258e0f2fde27bad40ae3f48d7294c88e43f1c5aa",
-        "title": "Cool Doji Danshi",
-        "image": "https://animeshouse.net/wp-content/uploads/2023/02/Pic457-2-426x240.jpg",
-        "link": "https://animeshouse.net/episodio/cool-doji-danshi-s1-episodio-20-legendado-hd/",
-        "episode": [
-            20.0
-        ],
-        "episode_slang": "episódio-20",
-        "is_censored": true
-    },
-    {
-        "_id": "323dab2afe5192fd49a9e4a2675d98e890bbdceb5234409a8784ea6876972e96",
-        "title": "Mononogatari",
-        "image": "https://animeshouse.net/wp-content/uploads/2023/02/Pic457-1-426x240.jpg",
-        "link": "https://animeshouse.net/episodio/mononogatari-s1-episodio-8-legendado-hd/",
-        "episode": [
-            8.0
-        ],
-        "episode_slang": "episódio-8",
-        "is_censored": true
-    },
-    {
-        "_id": "ff169c5aa7a93fdd9abc96d414cc835d42643be21467d8275e7abd225b61d65a",
-        "title": "Vinland Saga 2",
-        "image": "https://animeshouse.net/wp-content/uploads/2023/02/Pic369-426x240.jpg",
-        "link": "https://animeshouse.net/episodio/vinland-saga-s2-episodio-8-legendado-hd/",
-        "episode": [
-            8.0
-        ],
-        "episode_slang": "episódio-8",
-        "is_censored": true
-    },
-    {
-        "_id": "997d6ae222a1bb2da8b38d520e90133a2e69777fad50e3768056422d89cd6b4c",
-        "title": "Kyuuketsuki Sugu Shinu",
-        "image": "https://animeshouse.net/wp-content/uploads/2023/02/Pic318-426x240.jpg",
-        "link": "https://animeshouse.net/episodio/kyuuketsuki-sugu-shinu-s2-episodio-8-legendado-hd/",
-        "episode": [
-            8.0
-        ],
-        "episode_slang": "episódio-8",
-        "is_censored": true
-    },
-    {
-        "_id": "28bf6036c55177ea45a468aba29fa064e375a7d0d10de5d5c0ffa3adf86cf6ca",
-        "title": "High Card",
-        "image": "https://animeshouse.net/wp-content/uploads/2023/02/Pic317-426x240.jpg",
-        "link": "https://animeshouse.net/episodio/high-card-s1-episodio-8-legendado-hd/",
-        "episode": [
-            8.0
-        ],
-        "episode_slang": "episódio-8",
-        "is_censored": true
-    },
-    {
-        "_id": "e5ea6691f3521b56deeeb32cfd3ab1fd02541ca46e8bbfba121c000e531e6770",
-        "title": "Kyokou Suiri 2",
-        "image": "https://animeshouse.net/wp-content/uploads/2023/02/Pic651-426x240.jpg",
-        "link": "https://animeshouse.net/episodio/kyokou-suiri-s2-episodio-8-legendado-hd/",
-        "episode": [
-            8.0
-        ],
-        "episode_slang": "episódio-8",
-        "is_censored": true
-    },
-    {
-        "_id": "fa7f0bf2558a138640fdc229dece98fa27b0003edfe4139757caee16d7601a82",
-        "title": "Benriya Saitou-san, Isekai ni Iku",
-        "image": "https://animeshouse.net/wp-content/uploads/2023/02/Pic457-426x240.jpg",
-        "link": "https://animeshouse.net/episodio/benriya-saitou-san-isekai-ni-iku-s1-episodio-8-legendado-hd/",
-        "episode": [
-            8.0
-        ],
-        "episode_slang": "episódio-8",
-        "is_censored": true
-    },
-    {
-        "_id": "0bc83890fcabdf269b0b489818781693273cbacb7aeeb3274e0b91490d6f4cef",
-        "title": "Nokemono-tachi no Yoru",
-        "image": "https://animeshouse.net/wp-content/uploads/2023/02/Pic981-426x240.jpg",
-        "link": "https://animeshouse.net/episodio/nokemono-tachi-no-yoru-s1-episodio-8-legendado-hd/",
-        "episode": [
-            8.0
-        ],
-        "episode_slang": "episódio-8",
-        "is_censored": true
-    },
-    {
-        "_id": "d1c646c22c0241455cbf2796114fb5ba5ed333bb6ad110c5588b132ef553a85a",
-        "title": "Kami-tachi ni Hirowareta Otoko 2",
-        "image": "https://animeshouse.net/wp-content/uploads/2023/02/Pic613-426x240.jpg",
-        "link": "https://animeshouse.net/episodio/by-the-grace-of-the-gods-s2-episodio-8-legendado-hd/",
-        "episode": [
-            8.0
-        ],
-        "episode_slang": "episódio-8",
-        "is_censored": true
-    },
-    {
-        "_id": "c3e160368b63097d28fa97c10ebcfb32375359b5967d1e554125dce88310b56a",
-        "title": "Fumetsu no Anata e 2",
-        "image": "https://animeshouse.net/wp-content/uploads/2023/02/Pic312-1-426x240.jpg",
-        "link": "https://animeshouse.net/episodio/fumetsu-no-anata-e-s2-episodio-18-legendado-hd/",
-        "episode": [
-            18.0
-        ],
-        "episode_slang": "episódio-18",
-        "is_censored": true
-    },
-    {
-        "_id": "1300f6e4526e62ab5d78f6cb1c9b987d4e1b9b155f691759ee0b48c522ea66b5",
-        "title": "Boruto: Naruto Next Generations",
-        "image": "https://animeshouse.net/wp-content/uploads/2023/02/Pic1013-1-426x240.jpg",
-        "link": "https://animeshouse.net/episodio/boruto-naruto-next-generations-s1-episodio-289-legendado-hd/",
-        "episode": [
-            289.0
-        ],
-        "episode_slang": "episódio-289",
-        "is_censored": true
-    },
-    {
-        "_id": "7eedcca52f6fc549efb26cae2d995838e867090690b5ede65b5daacb3cc9a83a",
-        "title": "Digimon Ghost Game",
-        "image": "https://animeshouse.net/wp-content/uploads/2023/02/Pic904-1-426x240.jpg",
-        "link": "https://animeshouse.net/episodio/digimon-ghost-game-s1-episodio-65-legendado-hd/",
-        "episode": [
-            65.0
-        ],
-        "episode_slang": "episódio-65",
-        "is_censored": true
-    },
-    {
         "_id": "d3a2beec3b1be7d6bcf42dbd013d823fb0c31aa711c19022bdbda11d40a5b567",
         "title": "One Piece",
-        "image": "https://animeshouse.net/wp-content/uploads/2023/02/Pic792-426x240.jpg",
-        "link": "https://animeshouse.net/episodio/one-piece-s21-episodio-1053-legendado-hd/",
+        "image": "https://animeshouse.net/wp-content/uploads/2023/03/Pic1382-426x240.jpg",
+        "link": "one-piece-s21-episodio-1055-legendado-hd",
         "episode": [
-            1053.0
+            1055.0
         ],
-        "episode_slang": "episódio-1053",
-        "is_censored": true
-    },
-    {
-        "_id": "dcf48221c6a89e6c405aaca3cfd10362a7f478d3ff2cb9f255c23de43a967817",
-        "title": "Rougo ni Sonaete Isekai de 8-manmai no Kinka wo Tamemasu",
-        "image": "https://animeshouse.net/wp-content/uploads/2023/02/Pic237-426x240.jpg",
-        "link": "https://animeshouse.net/episodio/rougo-ni-sonaete-isekai-de-8-manmai-no-kinka-wo-tamemasu-s1-episodio-8-legendado-hd/",
-        "episode": [
-            8.0
-        ],
-        "episode_slang": "episódio-8",
+        "episode_slang": "episódio-1055",
         "is_censored": true
     },
     {
         "_id": "00a63234894ff8049fce0006e4ea1f15448fc736efe941612715e8602adc090a",
         "title": "Yowamushi Pedal: Limit Break",
-        "image": "https://animeshouse.net/wp-content/uploads/2023/02/Pic1334-426x240.jpg",
-        "link": "https://animeshouse.net/episodio/yowamushi-pedal-s5-episodio-20-legendado-hd/",
+        "image": "https://animeshouse.net/wp-content/uploads/2023/03/Pic740-426x240.jpg",
+        "link": "yowamushi-pedal-s5-episodio-25-legendado-hd",
         "episode": [
-            20.0
+            25.0
         ],
-        "episode_slang": "episódio-20",
+        "episode_slang": "episódio-25-(final)",
+        "is_censored": true
+    },
+    {
+        "_id": "00a63234894ff8049fce0006e4ea1f15448fc736efe941612715e8602adc090a",
+        "title": "Yowamushi Pedal: Limit Break",
+        "image": "https://animeshouse.net/wp-content/uploads/2023/03/Pic1240-426x240.jpg",
+        "link": "yowamushi-pedal-s5-episodio-24-legendado-hd",
+        "episode": [
+            24.0
+        ],
+        "episode_slang": "episódio-24",
+        "is_censored": true
+    },
+    {
+        "_id": "dcf48221c6a89e6c405aaca3cfd10362a7f478d3ff2cb9f255c23de43a967817",
+        "title": "Rougo ni Sonaete Isekai de 8-manmai no Kinka wo Tamemasu",
+        "image": "https://animeshouse.net/wp-content/uploads/2023/03/Pic1302-426x240.jpg",
+        "link": "rougo-ni-sonaete-isekai-de-8-manmai-no-kinka-wo-tamemasu-s1-episodio-12-legendado-hd",
+        "episode": [
+            12.0
+        ],
+        "episode_slang": "episódio-12-(final)",
+        "is_censored": true
+    },
+    {
+        "_id": "150e50285f0d57f9bcd9a70f36e73081a607a0133bbcbc2e35b14fbdddd92949",
+        "title": "Tokyo Revengers: Seiya Kessen-hen",
+        "image": "https://animeshouse.net/wp-content/uploads/2023/03/Pic359-426x240.jpg",
+        "link": "tokyo-revengers-s2-episodio-12-legendado-hd",
+        "episode": [
+            12.0
+        ],
+        "episode_slang": "episódio-12",
         "is_censored": true
     },
     {
         "_id": "c98c111ff6701e4cf0817e44cb5e3d75efa47e20a521ee8692ea07c4c99f69ff",
         "title": "Blue Lock",
-        "image": "https://animeshouse.net/wp-content/uploads/2023/02/Pic557-426x240.jpg",
-        "link": "https://animeshouse.net/episodio/blue-lock-s1-episodio-20-legendado-hd/",
+        "image": "https://animeshouse.net/wp-content/uploads/2023/03/Pic318-1-426x240.jpg",
+        "link": "blue-lock-s1-episodio-24-legendado-hd",
         "episode": [
-            20.0
+            24.0
         ],
-        "episode_slang": "episódio-20",
+        "episode_slang": "episódio-24-(final)",
         "is_censored": true
     },
     {
-        "_id": "1f755c5bf54344320e755b7d83f35642b5292a8cdeeab59e63a96b2e0b36e78f",
-        "title": "Ijiranaide, Nagatoro-san 2nd Attack",
-        "image": "https://animeshouse.net/wp-content/uploads/2023/02/Pic739-426x240.jpg",
-        "link": "https://animeshouse.net/episodio/ijiranaide-nagatoro-san-s2-episodio-9-legendado-hd/",
+        "_id": "5949606f85420603fe4b46fc8dad2ee9dbe564a69f60a4653b63526b259bd223",
+        "title": "Ars no Kyojuu",
+        "image": "https://animeshouse.net/wp-content/uploads/2023/03/Pic844-426x240.jpg",
+        "link": "ars-no-kyojuu-s1-episodio-12-legendado-hd",
+        "episode": [
+            12.0
+        ],
+        "episode_slang": "episódio-12-(final)",
+        "is_censored": true
+    },
+    {
+        "_id": "190337962ce109e4ad1b5794c19721515606bd5de1fc5cc23c1ee546abf321a1",
+        "title": "KanColle: Itsuka Ano Umi de",
+        "image": "https://animeshouse.net/wp-content/uploads/2023/02/Pic624-426x240.jpg",
+        "link": "kancolle-itsuka-ano-umi-de-s1-episodio-8-legendado-hd",
+        "episode": [
+            8.0
+        ],
+        "episode_slang": "episódio-8-(final)",
+        "is_censored": true
+    },
+    {
+        "_id": "aba06748ded6d76f331754da231bf660a8594be2dcb2f0ce3ec3870550202b2e",
+        "title": "Saikyou Onmyouji no Isekai Tenseiki",
+        "image": "https://animeshouse.net/wp-content/uploads/2023/03/Pic824-426x240.jpg",
+        "link": "saikyou-onmyouji-no-isekai-tenseiki-s1-episodio-12-legendado-hd",
+        "episode": [
+            12.0
+        ],
+        "episode_slang": "episódio-12",
+        "is_censored": true
+    },
+    {
+        "_id": "284733edc8bfa3c6c42f2519be958a69604ae41db18f61a1c2eafe900b790d21",
+        "title": "Trigun Stampede",
+        "image": "https://animeshouse.net/wp-content/uploads/2023/03/Pic1064-1-426x240.jpg",
+        "link": "trigun-stampede-s1-episodio-12-legendado-hd",
+        "episode": [
+            12.0
+        ],
+        "episode_slang": "episódio-12-(final)",
+        "is_censored": true
+    },
+    {
+        "_id": "74cb058a7fcaa46f26853f92ce2f515d66f7490e82083a3f5c3d876add317445",
+        "title": "Otonari no Tenshi-sama ni Itsunomanika Dame Ningen ni Sareteita Ken",
+        "image": "https://animeshouse.net/wp-content/uploads/2023/03/Pic1276-426x240.jpg",
+        "link": "otonari-no-tenshi-sama-ni-itsunomanika-dame-ningen-ni-sareteita-ken-s1-episodio-12-legendado-hd",
+        "episode": [
+            12.0
+        ],
+        "episode_slang": "episódio-12-(final)",
+        "is_censored": true
+    },
+    {
+        "_id": null,
+        "title": "Kaiko sareta Ankoku Heishi (30-dai) no Slow na Second Life",
+        "image": "https://animeshouse.net/wp-content/uploads/2023/03/Pic897-426x240.jpg",
+        "link": "kaiko-sareta-ankoku-heishi-30-dai-no-slow-na-second-life-s1-episodio-12-legendado-hd",
+        "episode": [
+            12.0
+        ],
+        "episode_slang": "episódio-12-(final)",
+        "is_censored": true
+    },
+    {
+        "_id": "16ee9a0647cc7c2bcb503b884de3a027d48bb219121063b0122ee325b74a9a1c",
+        "title": "Boku no Hero Academia",
+        "image": "https://animeshouse.net/wp-content/uploads/2023/03/Pic248-1-426x240.jpg",
+        "link": "boku-no-hero-academia-s6-episodio-138-legendado-hd",
+        "episode": [
+            138.0
+        ],
+        "episode_slang": "episódio-138-(final)",
+        "is_censored": true
+    },
+    {
+        "_id": "7835396a9d8d7bfec95103d9761a7ad033e17f6cf548205e7006cb548b205060",
+        "title": "Shinka no Mi: Shiranai Uchi ni Kachigumi Jinsei",
+        "image": "https://animeshouse.net/wp-content/uploads/2023/03/Pic1282-426x240.jpg",
+        "link": "shinka-no-mi-shiranai-uchi-ni-kachigumi-jinsei-s2-episodio-11-legendado-hd",
+        "episode": [
+            11.0
+        ],
+        "episode_slang": "episódio-11",
+        "is_censored": true
+    },
+    {
+        "_id": "9afe4747ae6b169c27c58ad7c9470f509c4849eb26b7c251ec395ffdc2a26a49",
+        "title": "Buddy Daddies",
+        "image": "https://animeshouse.net/wp-content/uploads/2023/03/Pic1350-426x240.jpg",
+        "link": "buddy-daddies-s1-episodio-11-legendado-hd",
+        "episode": [
+            11.0
+        ],
+        "episode_slang": "episódio-11",
+        "is_censored": true
+    },
+    {
+        "_id": "5486e365e50ab8975a4be3eea5610cf6b89aa97cf3e342b66ca729c8918e2d48",
+        "title": "The Legend of Heroes: Sen no Kiseki - Northern War",
+        "image": "https://animeshouse.net/wp-content/uploads/2023/03/Pic465-426x240.jpg",
+        "link": "the-legend-of-heroes-sen-no-kiseki-northern-war-s1-episodio-12-legendado-hd",
+        "episode": [
+            12.0
+        ],
+        "episode_slang": "episódio-12-(final)",
+        "is_censored": true
+    },
+    {
+        "_id": "2a3994c52fb4c4ef3fc0c121f2f4aef40fcccac2ffb9ea483fcc336c1b3fd3f8",
+        "title": "Nijiyon Animation",
+        "image": "https://animeshouse.net/wp-content/uploads/2023/03/Pic118-426x240.jpg",
+        "link": "nijiyon-animation-s1-episodio-12-legendado-hd",
+        "episode": [
+            12.0
+        ],
+        "episode_slang": "episódio-12-(final)",
+        "is_censored": true
+    },
+    {
+        "_id": "22bea79ab6ff4b7b34b8e38f93d162e481500f4593cc14c9fb1eb717cfa0d3ca",
+        "title": "Sugar Apple Fairy Tale",
+        "image": "https://animeshouse.net/wp-content/uploads/2023/03/Pic1279-426x240.jpg",
+        "link": "sugar-apple-fairy-tale-s1-episodio-12-legendado-hd",
+        "episode": [
+            12.0
+        ],
+        "episode_slang": "episódio-12-(final)",
+        "is_censored": true
+    },
+    {
+        "_id": "0880602303ca06734a24dc1b5e2f705f6bcba0551651540a4809b3f36fb8746f",
+        "title": "Isekai Nonbiri Nouka",
+        "image": "https://animeshouse.net/wp-content/uploads/2023/03/Pic974-426x240.jpg",
+        "link": "isekai-nonbiri-nouka-s1-episodio-12-legendado-hd",
+        "episode": [
+            12.0
+        ],
+        "episode_slang": "episódio-12-(final)",
+        "is_censored": true
+    },
+    {
+        "_id": "b48f6e54b72e53459d653f99c92a99f79a38d67e6efc3839ca2293742ac89564",
+        "title": "Spy Kyoushitsu",
+        "image": "https://animeshouse.net/wp-content/uploads/2023/03/Pic372-426x240.jpg",
+        "link": "spy-kyoushitsu-s1-episodio-11-legendado-hd",
+        "episode": [
+            11.0
+        ],
+        "episode_slang": "episódio-11",
+        "is_censored": true
+    },
+    {
+        "_id": "7d5cd94968240d1c677deaf099646df6d136af452a99e1764f5ee9bdf07dca83",
+        "title": "Inu ni Nattara Suki na Hito ni Hirowareta.",
+        "image": "https://animeshouse.net/wp-content/uploads/2023/03/Pic416-426x240.jpg",
+        "link": "inu-ni-nattara-suki-na-hito-ni-hirowareta-s1-episodio-12-legendado-hd",
+        "episode": [
+            12.0
+        ],
+        "episode_slang": "episódio-12-(final---sem-censura)",
+        "is_censored": false
+    },
+    {
+        "_id": "72640de02deaa5a3c3491771f0cbed1332220c3d98db8ed396f878c2b9c1f6ec",
+        "title": "Hyouken no Majutsushi ga Sekai wo Suberu",
+        "image": "https://animeshouse.net/wp-content/uploads/2023/03/Pic266-426x240.jpg",
+        "link": "hyouken-no-majutsushi-ga-sekai-wo-suberu-s1-episodio-12-legendado-hd",
+        "episode": [
+            12.0
+        ],
+        "episode_slang": "episódio-12-(final)",
+        "is_censored": true
+    },
+    {
+        "_id": "7cbe73fab3c9ce7e8bf0eb7deec898c42ae6fcd61792fa3123cfb572f4d99040",
+        "title": "Oniichan wa Oshimai!",
+        "image": "https://animeshouse.net/wp-content/uploads/2023/03/Pic1032-426x240.jpg",
+        "link": "oniichan-wa-oshimai-s1-episodio-12-legendado-hd",
+        "episode": [
+            12.0
+        ],
+        "episode_slang": "episódio-12-(final---sem-censura)",
+        "is_censored": false
+    },
+    {
+        "_id": "5ca82e675248518e6cf287b9a6ea9f14d38e528315ba1578d69a8e133506140e",
+        "title": "Revenger",
+        "image": "https://animeshouse.net/wp-content/uploads/2023/03/Pic417-426x240.jpg",
+        "link": "revenger-s1-episodio-12-legendado-hd",
+        "episode": [
+            12.0
+        ],
+        "episode_slang": "episódio-12-(final)",
+        "is_censored": true
+    },
+    {
+        "_id": "c8fa790164e41a0d85ad00bd4b779346f5937e984dfec04dc0f841731ffde74e",
+        "title": "Ooyukiumi no Kaina",
+        "image": "https://animeshouse.net/wp-content/uploads/2023/03/Pic1366-426x240.jpg",
+        "link": "ooyukiumi-no-kaina-s1-episodio-11-legendado-hd",
+        "episode": [
+            11.0
+        ],
+        "episode_slang": "episódio-11-(final)",
+        "is_censored": true
+    },
+    {
+        "_id": "ef3421fa51aa4bda30949a473108b65e8dfe4879ea4fd1f54f76717a8dec0093",
+        "title": "Tomo-chan wa Onnanoko!",
+        "image": "https://animeshouse.net/wp-content/uploads/2023/03/Pic560-426x240.jpg",
+        "link": "tomo-chan-wa-onnanoko-s1-episodio-12-legendado-hd",
+        "episode": [
+            12.0
+        ],
+        "episode_slang": "episódio-12-",
+        "is_censored": true
+    },
+    {
+        "_id": "f3493b1a5813ca46e18453ed50021fa4c2832e3745175af965a770d9a432a7b2",
+        "title": "Technoroid: Overmind",
+        "image": "https://animeshouse.net/wp-content/uploads/2023/03/Pic1285-426x240.jpg",
+        "link": "technoroid-overmind-s1-episodio-11-legendado-hd",
+        "episode": [
+            11.0
+        ],
+        "episode_slang": "episódio-11",
+        "is_censored": true
+    },
+    {
+        "_id": "9a4699d4570ba6b055b251fdf012f7cc8fe265da2f0d66bfccefcc5161f61ba1",
+        "title": "Itai no wa Iya nano de Bougyoryoku ni Kyokufuri Shitai to Omoimasu. 2",
+        "image": "https://animeshouse.net/wp-content/uploads/2023/03/Pic579-1-426x240.jpg",
+        "link": "itai-no-wa-iya-nano-de-bougyoryoku-ni-kyokufuri-shitai-to-omoimasu-s2-episodio-9-legendado-hd",
         "episode": [
             9.0
         ],
@@ -242,91 +308,25 @@
         "is_censored": true
     },
     {
-        "_id": "150e50285f0d57f9bcd9a70f36e73081a607a0133bbcbc2e35b14fbdddd92949",
-        "title": "Tokyo Revengers: Seiya Kessen-hen",
-        "image": "https://animeshouse.net/wp-content/uploads/2023/02/Pic868-426x240.jpg",
-        "link": "https://animeshouse.net/episodio/tokyo-revengers-s2-episodio-8-legendado-hd/",
+        "_id": "4fb93455f0ea0788a5b7814be21e18fe883e9c160ca29e84ca46fa26f6c0c4cc",
+        "title": "Bungou Stray Dogs 4",
+        "image": "https://animeshouse.net/wp-content/uploads/2023/03/Pic1026-426x240.jpg",
+        "link": "bungou-stray-dogs-4-episodio-49-legendado-hd",
         "episode": [
-            8.0
+            49.0
         ],
-        "episode_slang": "episódio-8",
+        "episode_slang": "episódio-49",
         "is_censored": true
     },
     {
-        "_id": "aba06748ded6d76f331754da231bf660a8594be2dcb2f0ce3ec3870550202b2e",
-        "title": "Saikyou Onmyouji no Isekai Tenseiki",
-        "image": "https://animeshouse.net/wp-content/uploads/2023/02/Pic1420-426x240.jpg",
-        "link": "https://animeshouse.net/episodio/saikyou-onmyouji-no-isekai-tenseiki-s1-episodio-8-legendado-hd/",
+        "_id": "9cf8eecd3ac156bcd23dcb29c01e005f6c3807a9775b9e1f248fc2a1e78871c2",
+        "title": "Tensei Oujo to Tensai Reijou no Mahou Kakumei",
+        "image": "https://animeshouse.net/wp-content/uploads/2023/03/Pic1211-426x240.jpg",
+        "link": "tensei-oujo-to-tensai-reijou-no-mahou-kakumei-s1-episodio-12-legendado-hd",
         "episode": [
-            8.0
+            12.0
         ],
-        "episode_slang": "episódio-8",
-        "is_censored": true
-    },
-    {
-        "_id": "2edfb5cd404d35056b3ee817fec6a0e9e490271f06f66aa18cdb07884aa4cadf",
-        "title": "NieR:Automata Ver1.1a",
-        "image": "https://animeshouse.net/wp-content/uploads/2023/02/Pic1113-426x240.jpg",
-        "link": "https://animeshouse.net/episodio/nierautomata-ver1-1a-s1-episodio-5-legendado-hd/",
-        "episode": [
-            5.0
-        ],
-        "episode_slang": "episódio-5",
-        "is_censored": true
-    },
-    {
-        "_id": "bd45b0087346f1dbd7babecd9e585669e84f3a64e05da2eb6496c51528c0bed9",
-        "title": "UniteUp!",
-        "image": "https://animeshouse.net/wp-content/uploads/2023/02/Pic1185-426x240.jpg",
-        "link": "https://animeshouse.net/episodio/uniteup-s1-episodio-6-legendado-hd/",
-        "episode": [
-            6.0
-        ],
-        "episode_slang": "episódio-6",
-        "is_censored": true
-    },
-    {
-        "_id": "284733edc8bfa3c6c42f2519be958a69604ae41db18f61a1c2eafe900b790d21",
-        "title": "TRIGUN STAMPEDE",
-        "image": "https://animeshouse.net/wp-content/uploads/2023/02/Pic67-426x240.jpg",
-        "link": "https://animeshouse.net/episodio/trigun-stampede-s1-episodio-8-legendado-hd/",
-        "episode": [
-            8.0
-        ],
-        "episode_slang": "episódio-8",
-        "is_censored": true
-    },
-    {
-        "_id": "74cb058a7fcaa46f26853f92ce2f515d66f7490e82083a3f5c3d876add317445",
-        "title": "Otonari no Tenshi-sama ni Itsunomanika Dame Ningen ni Sareteita Ken",
-        "image": "https://animeshouse.net/wp-content/uploads/2023/02/Pic516-426x240.jpg",
-        "link": "https://animeshouse.net/episodio/otonari-no-tenshi-sama-ni-itsunomanika-dame-ningen-ni-sareteita-ken-s1-episodio-8-legendado-hd/",
-        "episode": [
-            8.0
-        ],
-        "episode_slang": "episódio-8",
-        "is_censored": true
-    },
-    {
-        "_id": "53cd8b6a2db124a70c1078ebe2dda207cb7145bbc19ba7955f62c9781072e1b8",
-        "title": "Hikari no Ou",
-        "image": "https://animeshouse.net/wp-content/uploads/2023/02/Pic530-426x240.jpg",
-        "link": "https://animeshouse.net/episodio/hikari-no-ou-s1-episodio-7-legendado-hd/",
-        "episode": [
-            7.0
-        ],
-        "episode_slang": "episódio-7",
-        "is_censored": true
-    },
-    {
-        "_id": null,
-        "title": "Kaiko sareta Ankoku Heishi (30-dai) no Slow na Second Life",
-        "image": "https://animeshouse.net/wp-content/uploads/2023/02/Pic1129-426x240.jpg",
-        "link": "https://animeshouse.net/episodio/kaiko-sareta-ankoku-heishi-30-dai-no-slow-na-second-life-s1-episodio-8-legendado-hd/",
-        "episode": [
-            8.0
-        ],
-        "episode_slang": "episódio-8",
+        "episode_slang": "episódio-12-(final)",
         "is_censored": true
     }
 ]
