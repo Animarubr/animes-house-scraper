@@ -1,4 +1,6 @@
 from difflib import SequenceMatcher
+import base64
+
 BASE_ROOT = "https://animeshouse.net/"
 
 NEWS_EPISODES = "https://animeshouse.net/episodio/page/{}/"
@@ -22,13 +24,16 @@ VIDEO_IFRAME_BUILDER = "https://animeshouse.net/wp-admin/admin-ajax.php"
             nume: int, -> player option
             type: str -> media from, ex.: tv, filme, ova
         }
-"""    
+"""
+
+EXTERNAL_VIDEO_PAGE = "https://linkshort.fun/"
+# Recive one hashed parameter to access player page 
 
 def check_is_same(search:str, db_title:str):
     return SequenceMatcher(None, search, db_title).ratio()
 
 def parse_episode(text:str) -> tuple|None:
-    """Retirar números da string e criar slang da string"""
+    """extract numbers of string and creation of episode slang"""
     if text != "":
         slang = text.replace(" ", "-").strip().lower()
         episode = [float(s) for s in text.split() if s.isdigit()]
@@ -36,3 +41,9 @@ def parse_episode(text:str) -> tuple|None:
         return (slang, episode, is_censored)
     
     return None
+
+def parse_bytes(data:str) -> str:
+    parsed_bytes = data.split("<script>document.write(atob(")[1].split("));</script>")[0].replace('"', '').encode('utf-8').decode('unicode_escape')        
+    decodedBytes = base64.b64decode(parsed_bytes)
+    decodedStr = str(decodedBytes, "utf-8")
+    return decodedBytes

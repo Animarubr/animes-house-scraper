@@ -8,6 +8,7 @@ httpx = "*"
 selectolax = "*"
 pymongo = "*"
 python-dotenv = "*"
+jsbeautifier = "*"
 
 [dev-packages]
 ruff = "*"
