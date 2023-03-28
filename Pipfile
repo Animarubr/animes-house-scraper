@@ -9,6 +9,7 @@ selectolax = "*"
 pymongo = "*"
 python-dotenv = "*"
 jsbeautifier = "*"
+demjson = "*"
 
 [dev-packages]
 ruff = "*"

@@ -1,9 +1,10 @@
 from selectolax.parser import HTMLParser
 from urllib.parse import unquote
-from typing import List
+from typing import List, Dict
+import demjson
 
 from .session import Session
-from .utils import parse_episode, parse_bytes, BASE_ROOT, NEWS_EPISODES, EPISODE_VIDEO_PAGE, VIDEO_IFRAME_BUILDER, EXTERNAL_VIDEO_PAGE
+from .utils import parse_episode, parse_bytes, deoffuscator, BASE_ROOT, NEWS_EPISODES, EPISODE_VIDEO_PAGE, VIDEO_IFRAME_BUILDER, EXTERNAL_VIDEO_PAGE
 from .types import Card, Video
 from .utils.mongodb import MongoDB
 
@@ -77,12 +78,10 @@ class AnimesHouse(Session):
 
             response.append(external_link_parse.css_first("a").attrs["href"])
         
-        streams = self._get_streams(response[0], EPISODE_VIDEO_PAGE.format(slang_episode))
-        
-        return response
+        streams = [self._get_streams(e, EPISODE_VIDEO_PAGE.format(slang_episode)) for e in response]
+        return streams
     
-    def _get_streams(self, external_link:str, slang_episode:str):
-        # FIX: request recive 500 error
+    def _get_streams(self, external_link:str, slang_episode:str) -> Video|None:
         #TODO: Needs to refatoration
         
         self.headers["referer"] = EPISODE_VIDEO_PAGE.format(slang_episode)
@@ -123,13 +122,25 @@ class AnimesHouse(Session):
         if main_attrs != []:
             del headers["origin"]
             del headers["referer"]
+            
+            headers["accept-language"] = "pt-BR,pt;q=0.8,en-US;q=0.5,en;q=0.3"
             action_v4 = unquote(main_attrs[0].get("src"))
             final_request = self._make_request("GET", url=action_v4, headers=headers)
-            print(final_request.status_code)
-        else:
-            print(request_video_page_v3.status_code)
-        
+            
+            parsed_final = self.parse(final_request.text)
+            offuscated_function = [e.text() for e in parsed_final.css("script") if "eval" in e.text()]
+            deoffus = deoffuscator(offuscated_function[0])
+            try:            
+                player_object = demjson.decode(deoffus.split("playerInstance.setup(")[1].split("tracks:")[0] + "}")
                 
-        return []
+                return Video(thumb=player_object.get("image"), type_=player_object.get("sources").get("type"), stream=player_object.get("sources").get("file"))
+            except:
+                many_ofs = [deoffuscator(i) for i in offuscated_function if "m3u8" in i]
+                final_ofs = many_ofs[0].split("player(")[-1].split(");")[0].replace("'", "").replace(" ", "").split(",")
+                
+                return Video(thumb=final_ofs[1], type_="hls", stream=final_ofs[0])
+        
+        else:
+            return None
        
         

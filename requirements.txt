@@ -5,6 +5,7 @@ cattrs==22.2.0
 certifi==2022.12.7
 charset-normalizer==3.0.1
 Cython==0.29.33
+demjson==2.2.4
 dnspython==2.3.0
 EditorConfig==0.12.3
 exceptiongroup==1.1.0

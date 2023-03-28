@@ -1,4 +1,5 @@
 from difflib import SequenceMatcher
+import jsbeautifier
 import base64
 
 BASE_ROOT = "https://animeshouse.net/"
@@ -47,3 +48,6 @@ def parse_bytes(data:str) -> str:
     decodedBytes = base64.b64decode(parsed_bytes)
     decodedStr = str(decodedBytes, "utf-8")
     return decodedBytes
+
+def deoffuscator(offuscated_function:str) -> str:
+    return jsbeautifier.beautify(offuscated_function)

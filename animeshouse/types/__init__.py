@@ -42,16 +42,12 @@ class Anime(Meta):
     image:str=None
     genres:str=None
     seasons:Season()=None
-    
-@dataclass
-class Stream(Meta):
-    quality:str=None
-    stream:str=None
-    
+   
 
 @dataclass
 class Video(Meta):
     _id:str=None
-    option:int=None
-    streams:List[Stream]=None
+    thumb:str=None
+    type_:str=None
+    stream:str=None
     
