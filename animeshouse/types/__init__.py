@@ -47,6 +47,7 @@ class Anime(Meta):
 @dataclass
 class Video(Meta):
     _id:str=None
+    referer:str=None
     thumb:str=None
     type_:str=None
     stream:str=None

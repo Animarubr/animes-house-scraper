@@ -133,12 +133,12 @@ class AnimesHouse(Session):
             try:            
                 player_object = demjson.decode(deoffus.split("playerInstance.setup(")[1].split("tracks:")[0] + "}")
                 
-                return Video(thumb=player_object.get("image"), type_=player_object.get("sources").get("type"), stream=player_object.get("sources").get("file"))
+                return Video(referer=action_v4,thumb=player_object.get("image"), type_=player_object.get("sources").get("type"), stream=player_object.get("sources").get("file"))
             except:
                 many_ofs = [deoffuscator(i) for i in offuscated_function if "m3u8" in i]
                 final_ofs = many_ofs[0].split("player(")[-1].split(");")[0].replace("'", "").replace(" ", "").split(",")
                 
-                return Video(thumb=final_ofs[1], type_="hls", stream=final_ofs[0])
+                return Video(referer=action_v4,thumb=final_ofs[1], type_="hls", stream=final_ofs[0])
         
         else:
             return None
