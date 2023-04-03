@@ -51,4 +51,11 @@ class Video(Meta):
     thumb:str=None
     type_:str=None
     stream:str=None
+
+
+@dataclass
+class Episodes(Meta):
+    _id:str=None
+    season:int=None
+    episodes:List[str]=None
     

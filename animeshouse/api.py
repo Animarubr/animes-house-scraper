@@ -4,8 +4,8 @@ from typing import List, Dict
 import demjson
 
 from .session import Session
-from .utils import parse_episode, parse_bytes, deoffuscator, BASE_ROOT, NEWS_EPISODES, EPISODE_VIDEO_PAGE, VIDEO_IFRAME_BUILDER, EXTERNAL_VIDEO_PAGE
-from .types import Card, Video
+from .utils import parse_episode, parse_bytes, deoffuscator, BASE_ROOT, NEWS_EPISODES, EPISODE_VIDEO_PAGE, VIDEO_IFRAME_BUILDER, EXTERNAL_VIDEO_PAGE, ANIME_PAGE
+from .types import Card, Video, Episodes
 from .utils.mongodb import MongoDB
 
 class AnimesHouse(Session):
@@ -142,5 +142,27 @@ class AnimesHouse(Session):
         
         else:
             return None
+        
+        
+    def search_episodes(self, title:str) -> Episodes:
+        """Pass anime series name and return a list of episodes by season"""
+        # TODO: Solve season connection between loacal database(based in anilist) and animeshouse model
+        # TODO: Type of slang is wrong in some animes title from new episode, they don't match with the name on anime page and search(animeshouse) not return correct value
+        req = self._make_request("GET", url=ANIME_PAGE.format(title.replace(" ", "-")), headers=self.headers)
+        parse = self.parse(req.text)
+        episodes_by_seasons = [(idx+1, [a.attrs["href"] for a in e.css("a")]) for idx, e in enumerate([i for i in parse.css_first("div#seasons").css("div.se-c")])]
+        
+        local_data = self.database.get_anime_by_title(title, _type="complete")
+        
+        resp = []
+        for seasons in episodes_by_seasons:
+            resp.append(
+                Episodes(
+                    _id=local_data.get("_id"),
+                    season=seasons[0],
+                    episodes=seasons[1]
+                )
+            )
+        return resp
        
         
