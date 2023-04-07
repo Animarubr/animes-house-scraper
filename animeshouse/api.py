@@ -148,17 +148,22 @@ class AnimesHouse(Session):
         """Pass anime series name and return a list of episodes by season"""
         # TODO: Solve season connection between loacal database(based in anilist) and animeshouse model
         # TODO: Type of slang is wrong in some animes title from new episode, they don't match with the name on anime page and search(animeshouse) not return correct value
-        req = self._make_request("GET", url=ANIME_PAGE.format(title.replace(" ", "-")), headers=self.headers)
+        #FIX: now it's works well with animes who have more then one season, need more abstraction
+        title_changed = "-".join(title.split('-e')[0].split('-',-1)[:-1])
+        
+        req = self._make_request("GET", url=ANIME_PAGE.format(title_changed), headers=self.headers)
         parse = self.parse(req.text)
-        episodes_by_seasons = [(idx+1, [a.attrs["href"] for a in e.css("a")]) for idx, e in enumerate([i for i in parse.css_first("div#seasons").css("div.se-c")])]
+        episodes_by_seasons = [(int(e.css_first("span.se-t").text()), [a.attrs["href"] for a in e.css("a")]) for e in [i for i in parse.css_first("div#seasons").css("div.se-c")]]
         
-        local_data = self.database.get_anime_by_title(title, _type="complete")
-        
+        local_data = self.database.get_all_by_title(title_changed.replace("-", " "))
+        data = [(i["_id"], i["card"]["title"]) for i in sorted(local_data, key=lambda x: x["card"].get("year"),reverse=True)]
         resp = []
-        for seasons in episodes_by_seasons:
+        
+        for idx, seasons in enumerate(episodes_by_seasons[::-1]):
             resp.append(
                 Episodes(
-                    _id=local_data.get("_id"),
+                    _id=data[idx][0],
+                    title=data[idx][1],
                     season=seasons[0],
                     episodes=seasons[1]
                 )

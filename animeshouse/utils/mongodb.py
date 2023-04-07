@@ -1,6 +1,6 @@
 from dotenv import load_dotenv
 from pymongo import MongoClient
-from typing import List
+from typing import List, Dict
 import os
 
 from . import check_is_same
@@ -14,7 +14,7 @@ class MongoDB():
         self.media_database = self.client.get_database("blogdb")
         self.animes_vision = self.media_database.get_collection("animes")
     
-    def get_anime_by_title(self, title:str, _type:str="default") -> str:
+    def get_anime_by_title(self, title:str, _type:str="default") -> str|dict:
         search = list(self.animes_vision.find({"card.title": {"$regex": title, "$options": "i"}}))
 
         if len(search) == 0:
@@ -37,4 +37,9 @@ class MongoDB():
         if _type == "complete":
             return search[0]
     
-    
+    def get_all_by_title(self, title) -> Dict|None:
+        search = list(self.animes_vision.find({"card.title": {"$regex": title, "$options": "i"}}))
+        if len(search) > 0:
+            return search
+        
+        return None

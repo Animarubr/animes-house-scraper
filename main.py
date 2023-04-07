@@ -6,8 +6,9 @@ def main():
     # resp = await ah.get_news_episodes_by_page(page=1)
     req = json.loads(open("teste.json", encoding="utf-8").read())
     # resp = ah.get_videos_external_links(resp[0].get("link"))
-    resp = ah.search_episodes(req[0].get("title"))
-    print(resp[0])
+    print(req[0].get("title"))
+    resp = ah.search_episodes(req[0].get("link"))
+    print(resp[1])
     return resp
     
 if __name__ == "__main__":
