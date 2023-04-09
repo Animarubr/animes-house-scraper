@@ -1,6 +1,7 @@
 from selectolax.parser import HTMLParser
 from urllib.parse import unquote
 from typing import List, Dict
+from datetime import datetime
 import demjson
 
 from .session import Session
@@ -33,16 +34,25 @@ class AnimesHouse(Session):
         if (len(imgs) == len(titles) == len(links) == len(slangs) == len(episodes) == len(is_censored)):
             response = []
             for index, i in enumerate(imgs):
-                card = Card(
-                    _id=self.database.get_anime_by_title(titles[index]),
-                    title=titles[index],
-                    image=i,
-                    link=links[index],
-                    episode=episodes[index],
-                    episode_slang=slangs[index],
-                    is_censored=is_censored[index]
-                )
-                response.append(card)
+                _id = self.database.get_anime_by_title(titles[index])
+                if _id is None:
+                    print(titles[index])
+                # card = Card(
+                #     anime_id=_id,
+                #     title=titles[index],
+                #     image=i,
+                #     link=links[index],
+                #     episode=episodes[index],
+                #     episode_slang=slangs[index],
+                #     is_censored=is_censored[index],
+                #     created_at=str(datetime.utcnow())
+                # )
+                # add_to_cache = self.database.add_to_cache(card.__dict__)
+                # if "Success!" in add_to_cache:
+                #     response.append(card)
+                # else:
+                #     print(add_to_cache)
+                #     break
             
             return response
         return None

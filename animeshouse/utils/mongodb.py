@@ -1,6 +1,7 @@
 from dotenv import load_dotenv
 from pymongo import MongoClient
 from typing import List, Dict
+import re
 import os
 
 from . import check_is_same
@@ -12,15 +13,21 @@ class MongoDB():
     def __init__(self):
         self.client = MongoClient(os.getenv("MONGO_URI"))
         self.media_database = self.client.get_database("blogdb")
+        self.cache_doc = self.client.get_database("cache")
         self.animes_vision = self.media_database.get_collection("animes")
+        self.cache = self.cache_doc.get_collection("home")
     
     def get_anime_by_title(self, title:str, _type:str="default") -> str|dict:
+        #FIX: solve regex issue, need more generalization, find even if word was wrote wrong
         search = list(self.animes_vision.find({"card.title": {"$regex": title, "$options": "i"}}))
 
         if len(search) == 0:
            search = list(self.animes_vision.find({"card.title": {"$regex": f"^{title}*", "$options": "i"}}))
            if len(search) == 0:
-               return None
+               title_ = title.replace(" - ", ".*", 1)
+               search = list(self.animes_vision.find({"card.title": {"$regex": title_, "$options": "i"}}))
+               if len(search) == 0:
+                   return None
         
         if len(search) > 1:
             scores = [(check_is_same(title, i["card"]["title"][:-7]), idx) for idx, i in enumerate(search)]
@@ -43,3 +50,15 @@ class MongoDB():
             return search
         
         return None
+    
+    def add_to_cache(self, obj:dict) -> str:
+        # TODO: Verify if is existed
+        try:
+            # re.compile("Mix: Meisei Story.*Nidome no Natsu, Sora no Mukou e", re.IGNORECASE) 
+            is_exists = list(self.cache.find({"link": obj.get("link")}))
+            if len(is_exists) == 0:
+                self.cache.insert_one(obj)
+                return "Success!"
+            return "This episode was registred before."
+        except Exception as e:
+            return str(e)
