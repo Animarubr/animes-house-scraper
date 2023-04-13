@@ -18,7 +18,7 @@ class MongoDB():
         self.cache = self.cache_doc.get_collection("home")
     
     def get_anime_by_title(self, title:str, _type:str="default") -> str|dict:
-        #FIX: solve regex issue, need more generalization, find even if word was wrote wrong
+        # TODO: Verify the season number, not the nature season but the release
         search = list(self.animes_vision.find({"card.title": {"$regex": title, "$options": "i"}}))
 
         if len(search) == 0:
@@ -27,7 +27,9 @@ class MongoDB():
                title_ = title.replace(" - ", ".*", 1)
                search = list(self.animes_vision.find({"card.title": {"$regex": title_, "$options": "i"}}))
                if len(search) == 0:
-                   return None
+                   search = list(self.animes_vision.find({"$text": {"$search": title}}))
+                   if len(search) == 0:
+                       return None
         
         if len(search) > 1:
             scores = [(check_is_same(title, i["card"]["title"][:-7]), idx) for idx, i in enumerate(search)]

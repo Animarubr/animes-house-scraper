@@ -31,6 +31,8 @@ EXTERNAL_VIDEO_PAGE = "https://linkshort.fun/"
 # Recive one hashed parameter to access player page 
 
 def check_is_same(search:str, db_title:str):
+    if "2" in search:
+        print("* ",db_title)
     return SequenceMatcher(None, search, db_title).ratio()
 
 def parse_episode(text:str) -> tuple|None:

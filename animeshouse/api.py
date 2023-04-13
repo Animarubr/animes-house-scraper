@@ -34,25 +34,27 @@ class AnimesHouse(Session):
         if (len(imgs) == len(titles) == len(links) == len(slangs) == len(episodes) == len(is_censored)):
             response = []
             for index, i in enumerate(imgs):
+                s = links[index].split("-episodio")[0].split("-")[-1]
                 _id = self.database.get_anime_by_title(titles[index])
-                if _id is None:
-                    print(titles[index])
-                # card = Card(
-                #     anime_id=_id,
-                #     title=titles[index],
-                #     image=i,
-                #     link=links[index],
-                #     episode=episodes[index],
-                #     episode_slang=slangs[index],
-                #     is_censored=is_censored[index],
-                #     created_at=str(datetime.utcnow())
-                # )
-                # add_to_cache = self.database.add_to_cache(card.__dict__)
-                # if "Success!" in add_to_cache:
-                #     response.append(card)
-                # else:
-                #     print(add_to_cache)
-                #     break
+                # print(titles[index], _id, s)
+                # print()
+                card = Card(
+                    anime_id=_id,
+                    title=titles[index],
+                    season=s,
+                    image=i,
+                    link=links[index],
+                    episode=episodes[index],
+                    episode_slang=slangs[index],
+                    is_censored=is_censored[index],
+                    created_at=str(datetime.utcnow())
+                )
+                add_to_cache = self.database.add_to_cache(card.__dict__)
+                if "Success!" in add_to_cache:
+                    response.append(card)
+                else:
+                    print(add_to_cache)
+                    break
             
             return response
         return None

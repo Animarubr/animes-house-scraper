@@ -23,6 +23,7 @@ class Card(Meta):
     title:str=None
     image:str=None
     link:str=None
+    season:str=None
     episode:str=None
     episode_slang:str=None
     is_censored:bool=None
