@@ -18,9 +18,8 @@ class MongoDB():
         self.cache = self.cache_doc.get_collection("home")
     
     def get_anime_by_title(self, title:str, _type:str="default") -> str|dict:
-        # TODO: Verify the season number, not the nature season but the release
+        """Receve title and return list of"""
         search = list(self.animes_vision.find({"card.title": {"$regex": title, "$options": "i"}}))
-
         if len(search) == 0:
            search = list(self.animes_vision.find({"card.title": {"$regex": f"^{title}*", "$options": "i"}}))
            if len(search) == 0:
@@ -28,6 +27,7 @@ class MongoDB():
                search = list(self.animes_vision.find({"card.title": {"$regex": title_, "$options": "i"}}))
                if len(search) == 0:
                    search = list(self.animes_vision.find({"$text": {"$search": title}}))
+
                    if len(search) == 0:
                        return None
         
@@ -46,8 +46,12 @@ class MongoDB():
         if _type == "complete":
             return search[0]
     
-    def get_all_by_title(self, title) -> Dict|None:
+    def get_all_by_title(self, title) -> List[Dict]|None:
         search = list(self.animes_vision.find({"card.title": {"$regex": title, "$options": "i"}}))
+        if len(search) > 0:
+            return search
+        
+        search = list(self.animes_vision.find({"$text": {"$search": title}}))
         if len(search) > 0:
             return search
         
@@ -56,7 +60,8 @@ class MongoDB():
     def add_to_cache(self, obj:dict) -> str:
         # TODO: Verify if is existed
         try:
-            # re.compile("Mix: Meisei Story.*Nidome no Natsu, Sora no Mukou e", re.IGNORECASE) 
+            # re.compile("Mix: Meisei Story.*Nidome no Natsu, Sora no Mukou e", re.IGNORECASE)
+            print("[REGISTRANDO]",f"{ obj.get('title')} - {obj.get('episode')}")
             is_exists = list(self.cache.find({"link": obj.get("link")}))
             if len(is_exists) == 0:
                 self.cache.insert_one(obj)

@@ -15,6 +15,7 @@ EPISODE_VIDEO_PAGE = "https://animeshouse.net/episodio/{}/"
     #--> {s1} => Season of serie
     #--> {episodio-9} Slang if episode
     #--> {legendado-hd} Slang of the Type of audio and media quality Default HD
+MOVIE_VIDEO_PAGE = "https://animeshouse.net/filme/{}/"
 
 VIDEO_IFRAME_BUILDER = "https://animeshouse.net/wp-admin/admin-ajax.php"
 """
@@ -26,11 +27,13 @@ VIDEO_IFRAME_BUILDER = "https://animeshouse.net/wp-admin/admin-ajax.php"
             type: str -> media from, ex.: tv, filme, ova
         }
 """
+SEARCH_ENDPOINT = "https://animeshouse.net/?s={}"
 
 EXTERNAL_VIDEO_PAGE = "https://linkshort.fun/"
 # Recive one hashed parameter to access player page 
 
 def check_is_same(search:str, db_title:str):
+
     if "2" in search:
         print("* ",db_title)
     return SequenceMatcher(None, search, db_title).ratio()

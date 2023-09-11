@@ -16,10 +16,12 @@ class Session:
         params: Dict=dict(),
         data=None
     ) -> Request:
+        print(url, end=" -> ")
         request = self.http.build_request(method, url, headers=headers, params=params, data=data)
         
         while request is not None:
             res = self.http.send(request)
+            print(f"status: {res.status_code}")
             return res
         
         # with self.http as http:

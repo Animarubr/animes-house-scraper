@@ -3,10 +3,11 @@ from urllib.parse import unquote
 from typing import List, Dict
 from datetime import datetime
 import demjson
+import re
 
 from .session import Session
-from .utils import parse_episode, parse_bytes, deoffuscator, BASE_ROOT, NEWS_EPISODES, EPISODE_VIDEO_PAGE, VIDEO_IFRAME_BUILDER, EXTERNAL_VIDEO_PAGE, ANIME_PAGE
-from .types import Card, Video, Episodes
+from .utils import *
+from .types import *
 from .utils.mongodb import MongoDB
 
 class AnimesHouse(Session):
@@ -30,7 +31,7 @@ class AnimesHouse(Session):
         titles = [title.css_first("h3").text() for title in html.css("article.episodes")]
         links = [title.css_first("h3").css_first("a").attrs["href"].split("/")[4] for title in html.css("article.episodes")]
         slangs, episodes, is_censored = zip(*[parse_episode(title.css_first("div.data").css_first("div.epi").text()) for title in html.css("article.episodes")])
-        
+
         if (len(imgs) == len(titles) == len(links) == len(slangs) == len(episodes) == len(is_censored)):
             response = []
             for index, i in enumerate(imgs):
@@ -50,21 +51,27 @@ class AnimesHouse(Session):
                     created_at=str(datetime.utcnow())
                 )
                 add_to_cache = self.database.add_to_cache(card.__dict__)
+                print(add_to_cache)
                 if "Success!" in add_to_cache:
+                    print("[STATUS] ", add_to_cache)
                     response.append(card)
                 else:
-                    print(add_to_cache)
-                    break
+                    print("[STATUS] ", add_to_cache)
             
             return response
         return None
     
-    def get_videos_external_links(self, slang_episode:str) -> List[Video]|None:
- 
-        request_news_episodes = self._make_request(method="GET", url=EPISODE_VIDEO_PAGE.format(slang_episode), headers=self.headers)
+    def get_videos_external_links(self, slang_episode:str, type_of:str="anime") -> List[Video]|None:
+
+        if type_of == 'anime':
+            url_encode = EPISODE_VIDEO_PAGE
+        else:
+            url_encode = MOVIE_VIDEO_PAGE
+        
+        request_news_episodes = self._make_request(method="GET", url=url_encode.format(slang_episode), headers=self.headers)
+        
         html = self.parse(request_news_episodes.text)
         players_attrs = [(e.attributes.get("data-type"), e.attributes.get("data-post"), e.attributes.get("data-nume")) for e in html.css("li.dooplay_player_option")]
-        
         response = []
         
         for i in players_attrs:
@@ -79,7 +86,7 @@ class AnimesHouse(Session):
             headers = self.headers
             headers["content-type"] = "application/x-www-form-urlencoded; charset=UTF-8"
             headers["origin"] = BASE_ROOT
-            headers["referer"] = EPISODE_VIDEO_PAGE.format(slang_episode)
+            headers["referer"] = url_encode.format(slang_episode)
             
             request_ajax = self._make_request(method="POST", url=VIDEO_IFRAME_BUILDER, data=payload, headers=headers)
             iframe_parse = self.parse(request_ajax.text)
@@ -89,14 +96,22 @@ class AnimesHouse(Session):
             external_link_parse = self.parse(request_iframe.text)
 
             response.append(external_link_parse.css_first("a").attrs["href"])
-        
-        streams = [self._get_streams(e, EPISODE_VIDEO_PAGE.format(slang_episode)) for e in response]
+
+        # streams = [self._get_streams(e, url_encode.format(slang_episode), type_of) for e in response]
+        streams = []
+        for stream in response:
+            try:
+                st = self._get_streams(stream, url_encode.format(slang_episode), type_of)
+                streams.append(st)
+            except Exception as e:
+                print(str(e))
+                
         return streams
     
-    def _get_streams(self, external_link:str, slang_episode:str) -> Video|None:
+    def _get_streams(self, external_link:str, slang_episode:str, type_of:str="anime") -> Video|None:
         #TODO: Needs to refatoration
         
-        self.headers["referer"] = EPISODE_VIDEO_PAGE.format(slang_episode)
+        self.headers["referer"] = EPISODE_VIDEO_PAGE.format(slang_episode) if type_of == "anime" else MOVIE_VIDEO_PAGE.format(slang_episode)
         request_external = self._make_request("GET", url=external_link, headers=self.headers)
         
         decodedStr = parse_bytes(request_external.text)
@@ -138,15 +153,15 @@ class AnimesHouse(Session):
             headers["accept-language"] = "pt-BR,pt;q=0.8,en-US;q=0.5,en;q=0.3"
             action_v4 = unquote(main_attrs[0].get("src"))
             final_request = self._make_request("GET", url=action_v4, headers=headers)
-            
+
             parsed_final = self.parse(final_request.text)
             offuscated_function = [e.text() for e in parsed_final.css("script") if "eval" in e.text()]
-            deoffus = deoffuscator(offuscated_function[0])
-            try:            
+            try:
+                deoffus = deoffuscator(offuscated_function[0])
                 player_object = demjson.decode(deoffus.split("playerInstance.setup(")[1].split("tracks:")[0] + "}")
                 
                 return Video(referer=action_v4,thumb=player_object.get("image"), type_=player_object.get("sources").get("type"), stream=player_object.get("sources").get("file"))
-            except:
+            except Exception:
                 many_ofs = [deoffuscator(i) for i in offuscated_function if "m3u8" in i]
                 final_ofs = many_ofs[0].split("player(")[-1].split(");")[0].replace("'", "").replace(" ", "").split(",")
                 
@@ -158,24 +173,66 @@ class AnimesHouse(Session):
         
     def search_episodes(self, title:str) -> Episodes:
         """Pass anime series name and return a list of episodes by season"""
-        # TODO: Solve season connection between loacal database(based in anilist) and animeshouse model
-        # TODO: Type of slang is wrong in some animes title from new episode, they don't match with the name on anime page and search(animeshouse) not return correct value
-        #FIX: now it's works well with animes who have more then one season, need more abstraction
-        title_changed = "-".join(title.split('-e')[0].split('-',-1)[:-1])
+        title_changed = title.replace(" ", "-").lower()
+        print(title_changed)
         
-        req = self._make_request("GET", url=ANIME_PAGE.format(title_changed), headers=self.headers)
-        parse = self.parse(req.text)
-        episodes_by_seasons = [(int(e.css_first("span.se-t").text()), [a.attrs["href"] for a in e.css("a")]) for e in [i for i in parse.css_first("div#seasons").css("div.se-c")]]
+        if " - " in  title[-7:]:
+            if "dublado" not in title.lower():
+                title_changed = title[:-7].replace(" ", "-").lower()
+            else:
+                title_changed = title[:-7].replace(" - Dublado", " Dublado").replace(" ", "-").lower()
+        
+        title_changed = re.sub('[^a-zA-Z0-9\- \n\.]', '', title_changed)
         
         local_data = self.database.get_all_by_title(title_changed.replace("-", " "))
-        data = [(i["_id"], i["card"]["title"]) for i in sorted(local_data, key=lambda x: x["card"].get("year"),reverse=True)]
+   
+        data = [(i["_id"], i["card"]["title"]) for i in sorted(local_data, key=lambda x: x["inside_data"].get("year") if x["inside_data"].get("year") is not None else 0,reverse=True)] if local_data is not None else []
+
+        req = self._make_request("GET", url=ANIME_PAGE.format(title_changed), headers=self.headers)
+        parse = self.parse(req.text)
+        if "ERROR 404" in str(parse.text()):
+            title_3 = " ".join(title.split(" ")[:2])
+            req = self._make_request("GET", url=SEARCH_ENDPOINT.format(title_3), headers=self.headers)
+            parse = self.parse(req.text)
+            searchied = [[(e.text(), e.css_first("a").attrs["href"], i.css_first("span").text().lower()) for e in i.css("div.title")] for i in parse.css("div.result-item")]
+            if len(searchied) < 0:
+                return []
+            
+            s_rank = []
+
+            for i in searchied:                    
+                s_rank.append([check_is_same(title, i[0][0]), i[0]])
+                        
+            smax = sorted(s_rank, key=lambda x: x[0], reverse=True)[0][1]
+            if smax[-1] != "filme":
+                req = self._make_request("GET", url=ANIME_PAGE.format(smax[1].split("/")[4]), headers=self.headers)
+                parse = self.parse(req.text)
+
+                if "ERROR 404" in str(parse.text()):
+                    return []
+            else:
+                _id = None
+                if len(data) > 0:
+                    _id = data[0][0]
+                    title = data[0][1]
+                    
+                link = smax[1].split("/")[4]
+                return Movie(_id=_id, title=title, type_of='movie', movie_number=1, link=link)
+
+        episodes_by_seasons = [(int(e.css_first("span.se-t").text()), [a.attrs["href"] for a in e.css("a")]) for e in [i for i in parse.css_first("div#seasons").css("div.se-c")]]
         resp = []
-        
+        # POSSO SIMPLESMENTE IGNORAR A TEMPORADA CORRETA E RETOR NAR TODOS OS EPIS, SÒ RESOLVER NO FRONT
         for idx, seasons in enumerate(episodes_by_seasons[::-1]):
+            _id = None
+            if len(data) > 0:
+                _id = data[idx][0] if len(data)>=len(episodes_by_seasons) else data[0][0]
+                title = data[idx][1] if len(data)>=len(episodes_by_seasons) else data[0][1]
+                
             resp.append(
                 Episodes(
-                    _id=data[idx][0],
-                    title=data[idx][1],
+                    _id=_id,
+                    type_of='anime',
+                    title=title,
                     season=seasons[0],
                     episodes=seasons[1]
                 )

@@ -58,7 +58,17 @@ class Video(Meta):
 @dataclass
 class Episodes(Meta):
     _id:str=None
+    type_of:str=None
     title:str=None
     season:int=None
     episodes:List[str]=None
+
+@dataclass
+class Movie(Meta):
+    _id:str=None
+    type_of:str=None
+    title:str=None
+    movie_number:int=1
+    link:str=None
+
     
